@@ -75,7 +75,7 @@ include_once '../plantilla/barra.inc.php';
                                 Conexion:: abrir_conexion();
                                 Conexion:: cerrar_conexion();
                                 ?>
-                                <p>todavia no hay nada que mostrar </p>
+                                <p>todavia no hay nada que mostrar, hola esto modifique ( bubba prepara dragones) </p>
                             </div>
                         </div>
                     </div>
