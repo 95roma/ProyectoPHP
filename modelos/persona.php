@@ -1,5 +1,5 @@
 <?php 
-class persona{
+class Persona{
 	private $dui;
 	private $nombre;
 	private $apellido;
@@ -9,12 +9,13 @@ class persona{
 	private $equipo;
 	private $direccion;
 
-	function getDireccion(){
-		return $this->direccion;
-	}
-	function setDireccion($Direccion){
+	function setDireccion($direccion){
 		$this->direccion = $direccion;
 	}
+	function getDireccion(){
+		//return $this->$direccion;
+	}
+	
 
 	function getEquipo(){
 		return $this->equipo;

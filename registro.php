@@ -34,25 +34,25 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Registro Jugador!</h1>
               </div>
-              <form class="user" >
+              <form class="user" method="post">
                  <input type="hidden" name="pass" id="pass" >
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="nombre" placeholder="Nombre">
+                    <input type="text" class="form-control form-control-user" id="nombre" name="nombre" placeholder="Nombre">
                   </div>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control form-control-user" id="apellido" placeholder="Apellido">
+                    <input type="text" class="form-control form-control-user" id="apellido" name="apellido" placeholder="Apellido">
                   </div>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control form-control-user" id="direccion" placeholder="Direccion">
+                  <input type="text" class="form-control form-control-user" id="direccion" name="direccion" placeholder="Direccion">
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" id="dui" placeholder="DUI">
+                    <input type="text" class="form-control form-control-user" id="dui" name="dui" placeholder="DUI">
                   </div>
                   <div class="col-sm-6">
-                    <input type="password" class="form-control form-control-user" id="telefono" placeholder="Telefono">
+                    <input type="password" class="form-control form-control-user" id="telefono" name="telefono" placeholder="Telefono">
                   </div>
                 </div>
                 <a type="" href="" class="btn btn-primary btn-user btn-block">
@@ -92,8 +92,24 @@
 if (isset($_REQUEST["pass"])
 
     ) {
-     
-    echo '<script>alert("No se puedo realizar el registro acivo", "Favor revisar los datos e intentar nuevamente' .  '", );</script>';
+  include_once './conexionOracle.php';
+include_once './modelos/Persona.php';
+ include_once './repositorios/repositorio_persona.php';
+ $persona = new Persona();
+
+ $persona->setDui($_POST['dui']);
+ $persona->setNombre($_POST['nombre']);
+ $persona->setApellido($_POST['apellido']);
+ $persona->setDireccion($_POST['direccion']);
+ $persona->setTelefono($_POST['telefono']);
+
+   $conn=new conexion();
+   $conn->conectar() ;
+
+   repositorio_persona::registrar($conn->conectar(), $persona);
+   //repositorio_persona::insertar($conn->conectar(), $persona);
+
+    
 
     /*
     Conexion::abrir_conexion(); 
