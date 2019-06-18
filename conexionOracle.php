@@ -1,6 +1,6 @@
 <?php
 class conexion{
-    
+    // crear conexion con oracle
 public function conectar(){
    $conexion = oci_connect("root", "root", "localhost/xe"); 
  
@@ -11,11 +11,8 @@ if (!$conexion) {
 } else {    
   echo "Conexión con éxito a Oracle!"; } 
 
-   // crear conexion con oracle
-
 
 }
-
 
 }
 
